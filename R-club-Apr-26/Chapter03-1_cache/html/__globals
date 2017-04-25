@@ -1,0 +1,39 @@
+unnamed-chunk-1	library	theme_grey	theme_set
+unnamed-chunk-2	aes	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-3	ggplot	mpg
+unnamed-chunk-4	dim	mtcars
+unnamed-chunk-5	?	mpg
+unnamed-chunk-6	aes	cyl	geom_point	ggplot	hwy	mpg
+unnamed-chunk-7	aes	class	drv	geom_point	ggplot	mpg
+unnamed-chunk-8	aes	class	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-9	aes	class	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-10	aes	class	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-11	aes	class	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-12	aes	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-13	aes	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-14	?	$	hist	mpg
+unnamed-chunk-15	aes	cty	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-16	aes	cty	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-17	
+unnamed-chunk-18	aes	displ	geom_point	ggplot	mpg
+unnamed-chunk-19	?	aes	displ	geom_point	ggplot	hwy	model	mpg
+unnamed-chunk-20	<	aes	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-21	~	aes	displ	facet_wrap	geom_point	ggplot	hwy	mpg
+unnamed-chunk-22	~	aes	displ	facet_grid	geom_point	ggplot	hwy	mpg
+unnamed-chunk-23	~	aes	displ	facet_grid	geom_point	ggplot	hwy	mpg
+unnamed-chunk-24	~	aes	displ	facet_wrap	geom_point	ggplot	hwy	mpg
+unnamed-chunk-25	~	aes	displ	facet_grid	geom_point	ggplot	hwy	mpg
+unnamed-chunk-26	aes	cyl	drv	geom_point	ggplot	mpg
+unnamed-chunk-27	?	~	aes	displ	facet_grid	geom_point	ggplot	hwy	mpg
+unnamed-chunk-28	~	aes	displ	facet_grid	geom_point	ggplot	hwy	mpg
+unnamed-chunk-29	~	aes	class	displ	facet_wrap	geom_point	ggplot	hwy	mpg
+unnamed-chunk-30	aes	class	displ	geom_point	ggplot	hwy	mpg
+unnamed-chunk-31	?	facet_wrap
+unnamed-chunk-32	~	aes	displ	facet_wrap	geom_point	ggplot	hwy	mpg
+unnamed-chunk-33	aes	c	displ	facet_wrap	geom_point	ggplot	hwy	mpg
+unnamed-chunk-34	aes	c	displ	facet_wrap	geom_point	ggplot	hwy	mpg
+unnamed-chunk-35	aes	c	displ	facet_wrap	geom_point	ggplot	hwy	mpg
+unnamed-chunk-36	aes	c	displ	facet_wrap	geom_point	ggplot	hwy	mpg
+unnamed-chunk-37	aes	c	displ	facet_wrap	geom_point	ggplot	hwy	mpg
+unnamed-chunk-38	aes	c	displ	facet_wrap	geom_point	ggplot	hwy	mpg	par
+unnamed-chunk-39	?	facet_grid
