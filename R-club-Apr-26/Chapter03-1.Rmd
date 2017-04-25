@@ -2,89 +2,104 @@
 title: "RClub_Assignment03"
 author: "Xiaoyan Yue"
 date: "4/24/2017"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache= TRUE, autodep = TRUE)
 ```
 
-#run the code in the book
-##load the packages
+#Load the packages
 ```{r}
-install.packages('tidyverse')
 library(tidyverse)
 library(ggplot2)
 theme_set(theme_grey(12))
 ```
 
-#practise on mpg
+  
+#Practise on mpg
 ```{r}
 mpg
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy))
 ```
 
+  
 #Practise 3.2.4
+  
 ##Run ggplot(data = mpg) what do you see?
 ```{r}
 ggplot(data = mpg)#nothing
 ```
+  
 ##How many rows are in mtcars? How many columns?
 ```{r}
 dim(mtcars)
 ```
 
+  
 ##What does the drv variable describe? Read the help for ?mpg to find out.
 ```{r}
 ?mpg
 #f = front-wheel drive, r = rear wheel drive, 4 = 4wd
 ```
 
+  
 ##Make a scatterplot of hwy vs cyl.
 ```{r}
 ggplot(data = mpg) + geom_point(mapping = aes(x = hwy, y = cyl))
 ```
-
+  
 ##What happens if you make a scatterplot of class vs drv. Why is the plot not useful?
 ```{r}
 ggplot(data = mpg) + geom_point(mapping = aes(x = class, y = drv))#it's not visualized, no meaningful
 ```
 
+  
 #practise for Aesthetic mapping
+  
 ##by color
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
+  
 ##by size
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, size = class))
 ```
+  
 ##by alpha aesthetic
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, alpha = class))
 ```
+  
 ##by shape aesthetic
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, shape = class))
 ```
+  
 ##change the color for the basic aesthetic
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
 ```
 
+  
 #practise in 3.3.1
+  
 ##What’s gone wrong with this code? Why are the points not blue?
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 #the color need to go outside of aes(), if I want to change the color of the point
 ```
+  
 ##Which variables in mpg are categorical? Which variables are continuous? (Hint: type ?mpg to read the documentation for the dataset). How can you see this information when you run mpg?
 ```{r}
 ?mpg
@@ -100,7 +115,9 @@ hist(mpg$cty)#normal distribution
 hist(mpg$hwy)#normal distribution
 
 ```
+  
 ##Map a continuous variable to color, size, and shape. How do these aesthetics behave differently for categorical vs. continuous variables?
+  
 ###color
 ```{r}
 mpg
@@ -109,18 +126,21 @@ ggplot(data = mpg) +
 
 #the colors are also continuous, so it is hard to tell the difference between different continuous variables
 ```
+  
 ###size
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, size = cty))
 ```
+  
 ###shape
 ```{r}
-mpg
-ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, shape = cty))
+#mpg
+#ggplot(data = mpg) + 
+  #geom_point(mapping = aes(x = displ, y = hwy, shape = class))
 #A continuous variable can not be mapped to shape
 ```
+  
 ##What happens if you map the same variable to multiple aesthetics?
 ```{r}
 ggplot(data = mpg) + 
@@ -128,6 +148,7 @@ ggplot(data = mpg) +
 
 #it will become a great correlation line 
 ```
+  
 ##What does the stroke aesthetic do? What shapes does it work with? (Hint: use ?geom_point)
 ```{r}
 ggplot(data = mpg) + 
@@ -136,14 +157,16 @@ ggplot(data = mpg) +
 ?geom_point
 #it can be used to change the size of the points in the plot
 ```
-
+  
 ##What happens if you map an aesthetic to something other than a variable name, like aes(colour = displ < 5)?
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy,color = displ < 5), stroke = 1)
 ```
 
+  
 #practise on 'Facets' part. One way to add additional variables is with aesthetics, particularly useful for categorical variables.
+  
 ##facet_wrap, to facet your plot by a single variable. The variable that you pass to facet_wrap() should be discrete.
 ```{r}
 ggplot(data = mpg) + 
@@ -151,6 +174,7 @@ ggplot(data = mpg) +
   facet_wrap(~ class, nrow = 2)
 ```
 
+  
 ##facet_grid, to facet your plot on the combination of two variables, or one variable
 ```{r}
 ggplot(data = mpg) + 
@@ -162,21 +186,25 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) + 
   facet_grid(.~ cyl)
 ```
+  
 #3.5.1 Excercises
+  
 ##1.What happens if you facet on a continuous variable?
+  
 ###facet_wrap
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy)) + 
   facet_wrap(~ cty, nrow = 2)
 ```
+  
 ###try to facet_grid the continuous variable
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy)) + 
   facet_grid(~ cty)
 ```
-
+  
 ##2.What do the empty cells in plot with facet_grid(drv ~ cyl) mean? How do they relate to this plot?
 ```{r}
 ggplot(data = mpg) + 
@@ -184,7 +212,9 @@ ggplot(data = mpg) +
 
 #there are no points when drv equals to "4" and cyl equals to "5"
 ```
+  
 ##3.What plots does the following code make? What does . do?
+  
 ###facet only in y-axies
 ```{r}
 ggplot(data = mpg) + 
@@ -193,12 +223,14 @@ ggplot(data = mpg) +
 
 ?facet_grid
 ```
+  
 ###facet only in x-axies
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy)) +
   facet_grid(. ~ cyl)
 ```
+  
 ##4.Take the first faceted plot in this section:
 ```{r}
 ggplot(data = mpg) + 
@@ -207,18 +239,24 @@ ggplot(data = mpg) +
 
 #it gives us more information for a specified model
 ```
+  
 ###What are the advantages to using faceting instead of the colour aesthetic? 
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
 
+  
 ###What are the disadvantages?
+  
 ####There is less data in each figure, we can't see a strong negative relationship between displ and hwy as it was displayed in the color aesthetic figure.
 
+  
 ###How might the balance change if you had a larger dataset?
+  
 ####Each figure may have a strong negative relationships between displ and hwy.
 
+  
 ##5.Read ?facet_wrap. What does nrow do? What does ncol do?
 ```{r}
 ?facet_wrap
@@ -226,7 +264,9 @@ ggplot(data = mpg) +
 #nrow and ncol represented the number of rows and columns will be created when you facet_warp your original plot.
 ```
 
+  
 ###What other options control the layout of the individual panels? 
+  
 #####Try scales, which can allow scales to vary across the panels
 ```{r}
 ggplot(mpg, aes(displ, hwy)) +
@@ -234,36 +274,42 @@ ggplot(mpg, aes(displ, hwy)) +
   facet_wrap(~c("cyl", "drv"), scales = "free")
 
 ```
+  
 ####Try labeller, which control how labels are printed in panels
 ```{r}
 ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   facet_wrap(c("cyl", "drv"), labeller = "label_both")
 ```
+  
 ####Try as.table, if can change the position of the panel according to the values. If TRUE, the default, the facets are laid out like a table with highest values at the bottom-right. If FALSE, the facets are laid out like a plot with the highest value at the top-right.
 ```{r}
 ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   facet_wrap(c("cyl", "drv"), as.table = FALSE)
 ```
+  
 ####Try switch. Change the position of the labels. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".
 ```{r}
 ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   facet_wrap(c("cyl", "drv"), switch = "y")
 ```
+  
 ####Try drop ?
 ```{r}
 ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   facet_wrap(c("cyl", "drv"), drop = FALSE)
 ```
+  
 ####Try strip.position, can place the labels on either of the four sides
 ```{r}
 ggplot(mpg, aes(displ, hwy)) +
   geom_point() +
   facet_wrap(c("cyl", "drv"), strip.position ="right")
 ```
+  
 ####Try shrink
 ```{r}
 par(mfrow=c(1,2))
@@ -277,6 +323,7 @@ ggplot(mpg, aes(displ, hwy)) +
 ##There's no difference???
 ```
 
+  
 ###Why doesn’t facet_grid() have nrow and ncol variables?
 ```{r}
 ?facet_grid
