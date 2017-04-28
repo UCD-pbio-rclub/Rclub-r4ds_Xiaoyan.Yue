@@ -65,7 +65,15 @@ ggplot(data = mpg) + geom_point(mapping = aes(x = class, y = drv))#it's not visu
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = class))
 ```
-  
+##specify the items to be colored
+```{r}
+ plot.1 <- ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class == "compact")) 
+
+plot.1 + labs(color='Type') +
+  scale_color_manual(labels = c("Not Compact","Compact"), values = c('red','blue')) #try to how to change the legend in the conmand
+```
+
 ##by size
 ```{r}
 ggplot(data = mpg) + 
@@ -122,7 +130,7 @@ hist(mpg$hwy)#normal distribution
 ```{r}
 mpg
 ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = cty))
+  geom_point(mapping = aes(x = displ, y = hwy, color = cty)) 
 
 #the colors are also continuous, so it is hard to tell the difference between different continuous variables
 ```
@@ -152,9 +160,10 @@ ggplot(data = mpg) +
 ##What does the stroke aesthetic do? What shapes does it work with? (Hint: use ?geom_point)
 ```{r}
 ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy,color = model), stroke = 1)
+  geom_point(mapping = aes(x = displ, y = hwy),shape=10, stroke = 5)
 
-?geom_point
+?geom_poin
+?shape
 #it can be used to change the size of the points in the plot
 ```
   
@@ -175,7 +184,7 @@ ggplot(data = mpg) +
 ```
 
   
-##facet_grid, to facet your plot on the combination of two variables, or one variable
+##facet_grid, to facet your plot on the combination of two variables, or one variable. It was seperated by how many variables you have
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy)) + 
@@ -211,6 +220,8 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = drv, y = cyl))
 
 #there are no points when drv equals to "4" and cyl equals to "5"
+
+#this is the problem for overplotting
 ```
   
 ##3.What plots does the following code make? What does . do?
