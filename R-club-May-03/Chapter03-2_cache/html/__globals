@@ -1,0 +1,36 @@
+unnamed-chunk-1	aes	displ	geom_point	geom_smooth	ggplot	grid.arrange	hwy	mpg
+unnamed-chunk-2	aes	displ	drv	geom_smooth	ggplot	hwy	mpg
+unnamed-chunk-3	aes	displ	drv	geom_point	geom_smooth	ggplot	hwy	mpg
+unnamed-chunk-4	aes	displ	drv	geom_smooth	ggplot	hwy	mpg
+unnamed-chunk-5	aes	displ	geom_point	geom_smooth	ggplot	hwy	mpg
+unnamed-chunk-6	aes	class	displ	geom_point	geom_smooth	ggplot	hwy	mpg
+unnamed-chunk-7	==	aes	class	displ	filter	geom_point	geom_smooth	ggplot	hwy	mpg
+unnamed-chunk-8	aes	cut	diamonds	geom_bar	ggplot
+unnamed-chunk-9	aes	cut	diamonds	ggplot	stat_count
+unnamed-chunk-10	~	a	aes	b	geom_bar	ggplot	tribble
+unnamed-chunk-11	..prop..	aes	cut	diamonds	geom_bar	ggplot
+unnamed-chunk-12	aes	cut	depth	diamonds	ggplot	max	median	min	stat_summary
+unnamed-chunk-13	aes	cut	diamonds	geom_bar	ggplot	grid.arrange
+unnamed-chunk-14	aes	clarity	cut	diamonds	geom_bar	ggplot	grid.arrange
+unnamed-chunk-15	aes	clarity	cut	diamonds	geom_bar	ggplot	grid.arrange
+unnamed-chunk-16	aes	clarity	cut	diamonds	geom_bar	ggplot	grid.arrange
+unnamed-chunk-17	aes	displ	geom_point	ggplot	grid.arrange	hwy	mpg
+unnamed-chunk-18	aes	class	coord_flip	geom_boxplot	ggplot	grid.arrange	hwy	mpg
+unnamed-chunk-19	aes	coord_flip	coord_polar	cut	diamonds	geom_bar	ggplot	grid.arrange	labs	theme
+unnamed-chunk-20	aes	displ	drv	geom_point	geom_smooth	ggplot	hwy	mpg
+unnamed-chunk-21	aes	class	displ	geom_point	geom_smooth	ggplot	grid.arrange	hwy	mpg
+unnamed-chunk-22	?	geom_smooth
+unnamed-chunk-23	aes	displ	geom_point	geom_smooth	ggplot	grid.arrange	hwy	mpg
+unnamed-chunk-24	aes	displ	drv	geom_point	geom_smooth	ggplot	grid.arrange	hwy	mpg
+unnamed-chunk-25	?	aes	cut	depth	diamonds	geom_pointrange	ggplot	max	median	min	stat_summary	summary
+unnamed-chunk-26	?	aes	cut	depth	diamonds	geom_bar	geom_boxplot	geom_col	ggplot	grid.arrange
+unnamed-chunk-27	?	stat_smooth
+unnamed-chunk-28	..prop..	aes	color	cut	diamonds	geom_bar	ggplot	grid.arrange
+unnamed-chunk-29	aes	cty	geom_point	ggplot	grid.arrange	hwy	mpg
+unnamed-chunk-30	aes	cty	geom_jitter	ggplot	grid.arrange	hwy	mpg
+unnamed-chunk-31	aes	cty	geom_count	geom_jitter	ggplot	grid.arrange	hwy	mpg
+unnamed-chunk-32	aes	class	cty	geom_boxplot	ggplot	hwy	mpg
+unnamed-chunk-33	aes	clarity	coord_polar	cut	diamonds	geom_bar	ggplot	grid.arrange
+unnamed-chunk-34	?	labs
+unnamed-chunk-35	aes	coord_map	coord_quickmap	geom_polygon	ggplot	grid.arrange	group	lat	long	map_data
+unnamed-chunk-36	aes	coord_fixed	cty	geom_abline	geom_point	ggplot	hwy	mpg
