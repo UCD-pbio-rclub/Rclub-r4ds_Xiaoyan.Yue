@@ -1,0 +1,100 @@
+---
+title: "Chapter07-1"
+author: "Xiaoyan Yue"
+date: "5/23/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(gridExtra)
+```
+
+#7.3.4 Exercises
+
+##1.Explore the distribution of each of the x, y, and z variables in diamonds. What do you learn? Think about a diamond and how you might decide which dimension is the length, width, and depth.
+```{r}
+diamonds %>% select(x,y,z)
+#x
+x <- ggplot(data = diamonds, mapping = aes(x = x)) +
+  geom_histogram(binwidth = 0.01) +
+  coord_cartesian(xlim = c(3, 12))
+#y
+y <- ggplot(data = diamonds, mapping = aes(x = y)) +
+  geom_histogram(binwidth = 0.01) +
+  coord_cartesian(xlim = c(3, 12))
+#z
+z <- ggplot(data = diamonds, mapping = aes(x = z)) +
+  geom_histogram(binwidth = 0.01) +
+  coord_cartesian(xlim = c(0, 8))
+
+grid.arrange(x,y,z,ncol=3,nrow=1)
+
+help("diamonds")#it will tell us, x is length in mm, y is width in mm, z is depth in mm.
+#x and y have similar distribution. I think x and y are length and width respectively, but z is depth.
+```
+
+##2.Explore the distribution of price. Do you discover anything unusual or surprising? (Hint: Carefully think about the binwidth and make sure you try a wide range of values.)
+```{r}
+price <- diamonds %>% select(price)
+
+p1 <- ggplot(data = price, mapping = aes(x = price)) +
+  geom_histogram(binwidth = 100)
+
+p1_zoom <- ggplot(data = price, mapping = aes(x = price)) +
+  geom_histogram(binwidth = 10) +
+  coord_cartesian(xlim = c(0, 2500))
+
+grid.arrange(p1,p1_zoom,ncol=1,nrow=2)
+```
+
+
+##3.How many diamonds are 0.99 carat? How many are 1 carat? What do you think is the cause of the difference?
+```{r}
+diamonds %>% filter(carat>=0.99,carat<=1) %>% count(carat)
+
+ggplot(data = diamonds, mapping = aes(x = carat)) +
+  geom_histogram(binwidth = 0.01) +
+  coord_cartesian(xlim = c(0.99, 1))
+  
+```
+
+
+##4.Compare and contrast coord_cartesian() vs xlim() or ylim() when zooming in on a histogram. What happens if you leave binwidth unset? What happens if you try and zoom so only half a bar shows?
+```{r}
+original <- ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = y), binwidth = 0.5) +
+  coord_cartesian(ylim = c(0, 50))
+
+original_xlim <- ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = y), binwidth = 0.5) +
+  coord_cartesian(xlim = c(0, 20))
+
+original_binwidth <- ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = y)) +
+  coord_cartesian(ylim = c(0, 50))
+
+original_xlim_binwidth <- ggplot(diamonds) + 
+  geom_histogram(mapping = aes(x = y)) +
+  coord_cartesian(xlim = c(0, 20))
+
+grid.arrange(original,original_xlim,original_binwidth,original_xlim_binwidth,ncol=1,nrow=4)
+```
+#7.4.1 Exercises 
+##1.What happens to missing values in a histogram? What happens to missing values in a bar chart? Why is there a difference?
+```{r}
+?geom_histogram
+?geom_bar
+
+#NA could be a catagorical variable in the plot
+
+#the stat of them are different, the stat in geom_bar is "count",while that in geom_histogram is "bin"
+
+```
+
+##2.What does na.rm = TRUE do in mean() and sum()?
+```{r}
+#remove NAs when calculating mean and sum of the data
+```
+

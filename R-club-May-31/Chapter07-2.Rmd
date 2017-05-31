@@ -1,0 +1,13 @@
+---
+
+title: "Chapter07-2"
+author: "Xiaoyan Yue"
+date: "5/31/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
